@@ -126,13 +126,18 @@ class List:
     def reverse(self):
         if not self.head:
             return
+        self.tail = self.head
         prev = None
         cur = self.head 
+        d = 0
         while cur:
+            if d == 0:
+                self.tail_prev = cur.next
             nxt = cur.next
             cur.next = prev
             prev = cur
             cur = nxt
+            d += 1
         self.head = prev
 
              
@@ -170,4 +175,5 @@ if __name__ == '__main__':
     print(ls.size)
     ls.reverse()
     ls.print()
+    print(ls.tail.data,ls.tail_prev.data,ls.head.data)
 
