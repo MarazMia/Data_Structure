@@ -121,6 +121,21 @@ class List:
         while self.head:
             self.remove(self.size)
         self.size = 0 
+
+    ###function for reverse the whole list O(n)
+    def reverse(self):
+        if not self.head:
+            return
+        prev = None
+        cur = self.head 
+        while cur:
+            nxt = cur.next
+            cur.next = prev
+            prev = cur
+            cur = nxt
+        self.head = prev
+
+             
             
 if __name__ == '__main__':
     ls = List()
@@ -147,10 +162,12 @@ if __name__ == '__main__':
     ls.print()
     ls.remove(3)
     ls.print()
-    ls.remove_all()
+    #ls.remove_all()
     ls.print()
     print(ls.size)
     ls.add_last(669)
     ls.print()
     print(ls.size)
+    ls.reverse()
+    ls.print()
 
